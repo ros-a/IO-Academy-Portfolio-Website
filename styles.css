@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: neue-haas-unica, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+div {
+    height: 80%;
+}
