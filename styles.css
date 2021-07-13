@@ -69,22 +69,39 @@ h1 {
 
 /* ------------------- about page ----------------- */
 
+.about-content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 h2 {
     color: #DB4D44;
     font-size: 3rem;
     padding: 50px 0;
 }
 
-p {
+p, .email-address {
     font-size: 1.5rem;
     line-height: 3rem;
     font-weight: 500;
+    width: 50vw;
+}
+
+.photo-rosa {
+    max-width: 26vw;
+    max-height: 26vw;
+    width: auto;
+    height: auto;
+    margin-top: 15px;
+
 }
 
 /* ------------------- projects page ----------------- */
 
-#projects h2 {
-    padding-left: 30vw;
+.projects-title {
+    margin-left: 30vw;
 }
 
 .projects-container {
@@ -107,23 +124,80 @@ p {
 
 .project-image {
     background-image: url(plant.jpeg);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
-    background-repeat: no
-    height: 22vw;
-    width: 22vw;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    height: 90%;
+    width: 90%;
 }
 
-.projects:hover {
-    background-color: #47778E;
+.project-image:hover {
+    opacity: 0.5;
+    background-color: #000;
 }
+
 
 /* ------------------- contact page ----------------- */
 
-#contact h2 {
-    padding-left: 60vw;
+#contact {
+    margin-left: 60vw;
 }
 
 #contact {
     height: 50vh;
 }
+
+.contact-title {
+    padding-bottom: 30px;
+}
+
+.container-icons {
+    width: 26vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 5vh 0 10vh 0;
+}
+
+.email-address {
+    text-decoration: underline;
+}
+
+.icon {
+    width: 43px;
+    margin-right: 35px;
+}
+
+
+@media only screen and (max-width: 950px) {
+    .projects-container {
+        flex-wrap: wrap;
+    }
+    .projects {
+        width: 41vw;
+        height: 41vw;
+    }
+    .projects-title {
+        margin-left: 45vw;
+    }
+    #contact {
+        margin-left: 0;
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    .projects-container {
+        flex-direction: column;
+    }
+    .projects {
+        width: 86vw;
+        height: 86vw;
+    }
+    .projects-title {
+        margin-left: 0;
+    }
+  }
+
+
+
