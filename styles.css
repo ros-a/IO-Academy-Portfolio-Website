@@ -20,23 +20,22 @@ body {
 }
 
 .homepage, #about {
-    height: 100vh;
+    min-height: 100vh;
 }
-
 
 /* ------------------- navigation ----------------- */
 
 nav ul {
     position: fixed;
-    right: 20px;
     display: flex;
     flex-direction: row;
+    right: 3vw;
     list-style-type: none;
 }
 
-nav ul li {
-    margin-left: 20px;
-    position: relative;
+nav ul li:first-child, 
+nav ul li:nth-child(2) {
+    margin-right: 20px;
 }
 
 nav ul li a {
@@ -59,11 +58,11 @@ h1 {
     padding-top: 30vh;
 }
 
-.part1-h1, .emphasize-rosa {
+.part1-main-title, .emphasize-rosa {
     font-size: 6rem;
     line-height: 8rem;
     border-bottom: 6px solid #DB4D44;
-    padding-bottom: 43vh;
+    padding-bottom: 40vh;
 }
 
 
@@ -171,6 +170,16 @@ p, .email-address {
 
 
 @media only screen and (max-width: 950px) {
+    html {
+        font-size: 87%;
+    }
+    .about-content-container {
+        flex-direction: column;
+    }
+    .about-content-container p,
+    .about-content-container img {
+        width: 100%;
+    }
     .projects-container {
         flex-wrap: wrap;
     }
@@ -187,6 +196,18 @@ p, .email-address {
   }
 
 @media only screen and (max-width: 600px) {
+    nav ul {
+        z-index: 2;
+        left: 7vw;
+        right: 4vw;
+        justify-content: space-between;
+    }
+    nav ul li a {
+        font-size: 1.8rem;
+    }
+    html {
+        font-size: 70%;
+    }
     .projects-container {
         flex-direction: column;
     }
@@ -198,6 +219,3 @@ p, .email-address {
         margin-left: 0;
     }
   }
-
-
-
