@@ -107,6 +107,9 @@ p {
 
 .project-image {
     background-image: url(plant.jpeg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no
     height: 22vw;
     width: 22vw;
 }
