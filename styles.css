@@ -27,10 +27,12 @@ body {
 
 nav ul {
     position: fixed;
+    right: 0;
     display: flex;
     flex-direction: row;
-    right: 3vw;
+    margin: 30px 3vw 0 0;
     list-style-type: none;
+    z-index: 2;
 }
 
 nav ul li:first-child, 
@@ -47,24 +49,32 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-        background-color: #47778E;
+    background-color: #47778E;
     }
 
 /* ------------------- homepage ----------------- */
 
+/* display of h1 set to inline block so that its red border won't take full width of page */
+
 h1 {
-    font-size: 3rem;
-    line-height: 4.5rem;
-    padding-top: 30vh;
-}
-
-.part1-main-title, .emphasize-rosa {
-    font-size: 6rem;
-    line-height: 8rem;
+    position: relative;
+    top: 30vh;
+    font-size: 6.1rem;
+    line-height: 8.5rem;
+    display: inline-block;
     border-bottom: 6px solid #DB4D44;
-    padding-bottom: 40vh;
+    padding-bottom: 25vh;
 }
 
+.subtitle {
+    display: block;
+    font-size: 2.4rem;
+    line-height: 3.5rem;
+}
+
+.highlight-subtitle {
+    font-size: 1.6rem;
+}
 
 /* ------------------- about page ----------------- */
 
@@ -72,29 +82,32 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: flex-start; /* so that about-text and photo are aligned  */
 }
 
 h2 {
     color: #DB4D44;
-    font-size: 3rem;
-    padding: 50px 0;
+    font-size: 3.5rem;
+    padding: 80px 0 40px 0;
 }
 
-p, .email-address {
+.about-title {
+    padding-bottom: 30px; /* overwriting because this title has slightly different padding than other h2s */
+}
+
+p {
     font-size: 1.5rem;
     line-height: 3rem;
     font-weight: 500;
     width: 50vw;
+    margin-right: 5vw;
 }
 
 .photo-rosa {
-    max-width: 26vw;
-    max-height: 26vw;
+    max-width: 40%;
     width: auto;
     height: auto;
     margin-top: 15px;
-
 }
 
 /* ------------------- projects page ----------------- */
@@ -121,21 +134,14 @@ p, .email-address {
     align-items: center;
 }
 
-.project-image {
+.project-images {
     background-image: url(plant.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #fff;
     height: 90%;
     width: 90%;
 }
-
-.project-image:hover {
-    opacity: 0.5;
-    background-color: #000;
-}
-
 
 /* ------------------- contact page ----------------- */
 
@@ -161,24 +167,31 @@ p, .email-address {
 
 .email-address {
     text-decoration: underline;
+    font-size: 1.5rem;
+    font-weight: 500;
 }
 
-.icon {
+.icon, .icon-link {
     width: 43px;
     margin-right: 35px;
 }
-
 
 @media only screen and (max-width: 950px) {
     html {
         font-size: 87%;
     }
+    h1 {
+        padding-bottom: 30vh;
+    }
     .about-content-container {
         flex-direction: column;
     }
-    .about-content-container p,
-    .about-content-container img {
+    .about-content-container p {
         width: 100%;
+    }
+    .photo-rosa {
+        max-width: 41vw;
+        margin-top: 30px;
     }
     .projects-container {
         flex-wrap: wrap;
@@ -199,7 +212,7 @@ p, .email-address {
     nav ul {
         z-index: 2;
         left: 7vw;
-        right: 4vw;
+        right: 7vw;
         justify-content: space-between;
     }
     nav ul li a {
@@ -207,6 +220,21 @@ p, .email-address {
     }
     html {
         font-size: 70%;
+    }
+    h1 {
+        padding-bottom: 35vh;
+    }
+    .about-content-container {
+        flex-direction: column;
+    }
+    .about-content-container p,
+    .about-content-container img {
+        width: 100%;
+    }
+    .photo-rosa {
+        max-width: 100%;
+        margin: 40px 0 80px;
+        height: auto;
     }
     .projects-container {
         flex-direction: column;
