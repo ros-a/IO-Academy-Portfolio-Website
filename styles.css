@@ -19,7 +19,7 @@ body {
     padding: 0 7vw;
 }
 
-.homepage, #about {
+.homepage-section, .about-section {
     min-height: 100vh;
 }
 
@@ -32,7 +32,7 @@ nav ul {
     flex-direction: row;
     margin: 30px 3vw 0 0;
     list-style-type: none;
-    z-index: 2;
+    z-index: 100;
 }
 
 nav ul li:first-child, 
@@ -54,13 +54,12 @@ nav ul li a:hover {
 
 /* ------------------- homepage ----------------- */
 
-/* display of h1 set to inline block so that its red border won't take full width of page */
-
 h1 {
     position: relative;
-    top: 30vh;
-    font-size: 6.1rem;
-    line-height: 8.5rem;
+    top: 22vh;
+    font-size: 6.8rem;
+    line-height: 10rem;
+    /* display set to inline block so that its red border won't take full width of page */
     display: inline-block;
     border-bottom: 6px solid #DB4D44;
     padding-bottom: 25vh;
@@ -69,16 +68,12 @@ h1 {
 .subtitle {
     display: block;
     font-size: 2.4rem;
-    line-height: 3.5rem;
-}
-
-.highlight-subtitle {
-    font-size: 1.6rem;
+    line-height: 4.2rem;
 }
 
 /* ------------------- about page ----------------- */
 
-.about-content-container {
+.about-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -91,20 +86,25 @@ h2 {
     padding: 80px 0 40px 0;
 }
 
-.about-title {
-    padding-bottom: 30px; /* overwriting because this title has slightly different padding than other h2s */
+.about-section p {
+    padding-bottom: 20px;
 }
 
-p {
+.about-title {
+    /* overwriting because this title has slightly different padding than other h2s */
+    padding-bottom: 30px; 
+}
+
+.about-section p {
     font-size: 1.5rem;
     line-height: 3rem;
     font-weight: 500;
     width: 50vw;
-    margin-right: 5vw;
+    margin-right: 3vw;
 }
 
 .photo-rosa {
-    max-width: 40%;
+    max-width: 35%;
     width: auto;
     height: auto;
     margin-top: 15px;
@@ -112,44 +112,90 @@ p {
 
 /* ------------------- projects page ----------------- */
 
-.projects-title {
-    margin-left: 30vw;
-}
-
 .projects-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-content: space-between;
     width: 86vw;
+    gap: 3vw;
+}
+
+/* the width of the project container is 86vw; the gaps are both 3vw  */
+
+.project-section-title {
+    margin-left: calc(80vw / 3 + 3vw);
 }
 
 .projects {
-    background-color: #9FBDCC;
-    height: 26vw;
-    width: 26vw;
-    margin-bottom: 3vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    height: calc(80vw / 3);
+    width: calc(80vw / 3);
 }
 
 .project-images {
+    position: relative;
     background-image: url(plant.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
+    border: 25px solid #9FBDCC;
+}
+
+/* these titles will initially be invisible (opacity: 0) */
+
+.project-titles {
+    position: absolute;
+    white-space: nowrap;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 10px 30px;
+    opacity: 0;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 2;
+}
+
+/* this pseudo elements is initially invisisble (opacity: 0) */
+
+.project-images:after {
+    content: "";
+    position: absolute;
+    width: 100%; 
+    height:100%;
+    background: #000;
+    opacity: 0;
+}
+
+/* when a project is hovered, the pseudeo element becomes visible and greys out the image */
+
+.projects:hover .project-images:after {
+    opacity: 0.4;
+}
+
+/* when a project is hovered, the project title becomes visisble */
+
+.projects:hover .project-titles {
+    opacity: 1;
+}
+
+/* when a project is hovered, its border changes color */
+
+.projects:hover .project-images {
+    border: 25px solid #6894AA;
 }
 
 /* ------------------- contact page ----------------- */
 
-#contact {
-    margin-left: 60vw;
+.contact-section {
+    margin-left: 59vw;
 }
 
-#contact {
+.contact-section {
     height: 50vh;
 }
 
@@ -178,72 +224,86 @@ p {
 
 @media only screen and (max-width: 950px) {
     html {
-        font-size: 87%;
+        font-size: 82%;
     }
     h1 {
+        font-size: 6.2rem;
         padding-bottom: 30vh;
     }
-    .about-content-container {
+    .subtitle {
+        font-size: 2.2rem;
+    }
+    .about-container {
         flex-direction: column;
     }
-    .about-content-container p {
+    .about-container p {
         width: 100%;
     }
     .photo-rosa {
-        max-width: 41vw;
-        margin-top: 30px;
+        max-width: 100%;
     }
-    .projects-container {
-        flex-wrap: wrap;
+    .project-section-title {
+        margin-left: 44.5vw;
     }
     .projects {
-        width: 41vw;
-        height: 41vw;
+        height: calc(83vw / 2);
+        width: calc(83vw / 2);
     }
-    .projects-title {
-        margin-left: 45vw;
-    }
-    #contact {
+    .contact-section {
         margin-left: 0;
     }
   }
 
 @media only screen and (max-width: 600px) {
+    html {
+        font-size: 65%;
+    }
     nav ul {
-        z-index: 2;
+        justify-content: space-between;
         left: 7vw;
         right: 7vw;
-        justify-content: space-between;
+        width: 86vw;
     }
     nav ul li a {
         font-size: 1.8rem;
     }
-    html {
-        font-size: 70%;
-    }
     h1 {
+        font-size: 6.2rem;
         padding-bottom: 35vh;
     }
-    .about-content-container {
+    .subtitle {
+        font-size: 2.2rem;
+    }
+    .about-container {
         flex-direction: column;
     }
-    .about-content-container p,
-    .about-content-container img {
+    .about-container p,
+    .about-container img {
         width: 100%;
     }
     .photo-rosa {
         max-width: 100%;
-        margin: 40px 0 80px;
+        margin: 20px 0 80px;
         height: auto;
     }
     .projects-container {
+        width: 100%;
         flex-direction: column;
+        gap: 30px;
     }
     .projects {
-        width: 86vw;
+        width: 100%;
         height: 86vw;
     }
-    .projects-title {
+    .project-section-title {
         margin-left: 0;
     }
+    .project-titles {
+        font-size: 2rem;
+    }
+    .contact-section {
+        height: 30vh;
+        margin-bottom: 20vh;
+    }
   }
+  
