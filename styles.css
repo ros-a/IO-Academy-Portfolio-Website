@@ -261,7 +261,8 @@ h2 {
     nav ul {
         justify-content: space-between;
         left: 7vw;
-        width: 83vw;
+        right: 7vw;
+        width: 86vw;
     }
     nav ul li a {
         font-size: 1.8rem;
@@ -302,5 +303,7 @@ h2 {
     }
     .contact-section {
         height: 30vh;
+        margin-bottom: 20vh;
     }
   }
+  
