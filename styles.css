@@ -32,7 +32,7 @@ nav ul {
     flex-direction: row;
     margin: 30px 3vw 0 0;
     list-style-type: none;
-    z-index: 2;
+    z-index: 100;
 }
 
 nav ul li:first-child, 
@@ -157,7 +157,7 @@ h2 {
     font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    z-index: 3;
+    z-index: 2;
 }
 
 /* this pseudo elements is initially invisisble (opacity: 0) */
@@ -227,7 +227,11 @@ h2 {
         font-size: 82%;
     }
     h1 {
+        font-size: 6.2rem;
         padding-bottom: 30vh;
+    }
+    .subtitle {
+        font-size: 2.2rem;
     }
     .about-container {
         flex-direction: column;
@@ -252,13 +256,12 @@ h2 {
 
 @media only screen and (max-width: 600px) {
     html {
-        font-size: 70%;
+        font-size: 65%;
     }
     nav ul {
-        z-index: 2;
-        left: 7vw;
-        right: 7vw;
         justify-content: space-between;
+        left: 7vw;
+        width: 83vw;
     }
     nav ul li a {
         font-size: 1.8rem;
@@ -279,15 +282,16 @@ h2 {
     }
     .photo-rosa {
         max-width: 100%;
-        margin: 40px 0 80px;
+        margin: 20px 0 80px;
         height: auto;
     }
     .projects-container {
+        width: 100%;
         flex-direction: column;
         gap: 30px;
     }
     .projects {
-        width: 86vw;
+        width: 100%;
         height: 86vw;
     }
     .project-section-title {
@@ -295,5 +299,8 @@ h2 {
     }
     .project-titles {
         font-size: 2rem;
+    }
+    .contact-section {
+        height: 30vh;
     }
   }
