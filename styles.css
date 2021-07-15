@@ -54,13 +54,12 @@ nav ul li a:hover {
 
 /* ------------------- homepage ----------------- */
 
-/* display of h1 set to inline block so that its red border won't take full width of page */
-
 h1 {
     position: relative;
-    top: 30vh;
-    font-size: 6.1rem;
-    line-height: 8.5rem;
+    top: 22vh;
+    font-size: 6.8rem;
+    line-height: 10rem;
+    /* display set to inline block so that its red border won't take full width of page */
     display: inline-block;
     border-bottom: 6px solid #DB4D44;
     padding-bottom: 25vh;
@@ -69,21 +68,18 @@ h1 {
 .subtitle {
     display: block;
     font-size: 2.4rem;
-    line-height: 3.5rem;
-}
-
-.highlight-subtitle {
-    font-size: 1.6rem;
+    line-height: 4.2rem;
 }
 
 /* ------------------- about page ----------------- */
 
-.about-content-container {
+.about-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start; /* so that about-text and photo are aligned  */
 }
+
 
 h2 {
     color: #DB4D44;
@@ -91,8 +87,13 @@ h2 {
     padding: 80px 0 40px 0;
 }
 
+.about p {
+    padding-bottom: 20px;
+}
+
 .about-title {
-    padding-bottom: 30px; /* overwriting because this title has slightly different padding than other h2s */
+    /* overwriting because this title has slightly different padding than other h2s */
+    padding-bottom: 30px; 
 }
 
 p {
@@ -100,11 +101,11 @@ p {
     line-height: 3rem;
     font-weight: 500;
     width: 50vw;
-    margin-right: 5vw;
+    margin-right: 3vw;
 }
 
 .photo-rosa {
-    max-width: 40%;
+    max-width: 35%;
     width: auto;
     height: auto;
     margin-top: 15px;
@@ -113,7 +114,7 @@ p {
 /* ------------------- projects page ----------------- */
 
 .projects-title {
-    margin-left: 30vw;
+    margin-left: 29.5vw;
 }
 
 .projects-container {
@@ -121,32 +122,76 @@ p {
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
-    width: 86vw;
+    width: 100%;
 }
 
 .projects {
-    background-color: #9FBDCC;
-    height: 26vw;
-    width: 26vw;
-    margin-bottom: 3vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    height: 27vw;
+    width: 27vw;
+    margin-bottom: 2.5vw;
 }
 
 .project-images {
+    position: relative;
     background-image: url(plant.jpeg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
+    border: 25px solid #9FBDCC;
+}
+
+/* this places an invisible (opacity: 0) black block on top of the images that becomes visisble on hover */
+
+.project-image-selected {
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+}
+
+.project-titles {
+    position: absolute;
+    white-space: nowrap;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 10px 30px;
+    opacity: 0;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.project-images:hover + .project-titles {
+    opacity: 1;
+}
+
+.project-images:hover {
+    border: 25px solid #4E85A0;
+}
+
+.project-images:hover .project-image-selected {
+    opacity: 0.5;
+}
+
+.project-titles:hover {
+    opacity: 1;
+}
+
+.project-titles:hover ~ .project-image-selected {
+    opacity: 1;
 }
 
 /* ------------------- contact page ----------------- */
 
 #contact {
-    margin-left: 60vw;
+    margin-left: 59vw;
 }
 
 #contact {
@@ -178,20 +223,19 @@ p {
 
 @media only screen and (max-width: 950px) {
     html {
-        font-size: 87%;
+        font-size: 82%;
     }
     h1 {
         padding-bottom: 30vh;
     }
-    .about-content-container {
+    .about-container {
         flex-direction: column;
     }
-    .about-content-container p {
+    .about-container p {
         width: 100%;
     }
     .photo-rosa {
-        max-width: 41vw;
-        margin-top: 30px;
+        max-width: 100%;
     }
     .projects-container {
         flex-wrap: wrap;
@@ -209,6 +253,13 @@ p {
   }
 
 @media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 6.2rem;
+        padding-bottom: 35vh;
+    }
+    .subtitle {
+        font-size: 2.2rem;
+    }
     nav ul {
         z-index: 2;
         left: 7vw;
@@ -221,14 +272,11 @@ p {
     html {
         font-size: 70%;
     }
-    h1 {
-        padding-bottom: 35vh;
-    }
-    .about-content-container {
+    .about-container {
         flex-direction: column;
     }
-    .about-content-container p,
-    .about-content-container img {
+    .about-container p,
+    .about-container img {
         width: 100%;
     }
     .photo-rosa {
@@ -245,5 +293,8 @@ p {
     }
     .projects-title {
         margin-left: 0;
+    }
+    .project-titles {
+        font-size: 2rem;
     }
   }
